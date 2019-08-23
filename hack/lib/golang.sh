@@ -420,7 +420,8 @@ kube::golang::set_platform_envs() {
         export CC=s390x-linux-gnu-gcc
         ;;
       "linux/mips64le")
-        export CGO_ENABLED=0
+        export CGO_ENABLED=1
+        export CC=mips64el-linux-gnu-gcc
         ;;
     esac
   fi
