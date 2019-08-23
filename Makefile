@@ -1,13 +1,13 @@
 .PHONY: build push
 
-IMAGE=kube-cross
+IMAGE=justfortest
 TAG=$(shell cat VERSION)
 
 
 all: push
 
 build:
-        docker build --pull -t staging-k8s.gcr.io/$(IMAGE):$(TAG) .
+        docker build --pull -t piranhahu/$(IMAGE):$(TAG) .
 
 push: build
-        docker push staging-k8s.gcr.io/$(IMAGE):$(TAG)
+        docker push piranhahu/$(IMAGE):$(TAG)
