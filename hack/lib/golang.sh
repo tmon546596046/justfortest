@@ -421,7 +421,7 @@ kube::golang::set_platform_envs() {
         ;;
       "linux/mips64le")
         export CGO_ENABLED=1
-        export CC=mips64el-linux-gnu-gcc
+        export CC=mips64el-linux-gnuabi64-gcc
         ;;
     esac
   fi
