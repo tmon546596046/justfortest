@@ -33,7 +33,7 @@ KUBE_RELEASE_RUN_TESTS=${KUBE_RELEASE_RUN_TESTS-y}
 
 kube::build::verify_prereqs
 kube::build::build_image
-kube::build::run_build_command make cross KUBE_BUILD_PLATFORMS="linux/mips64le"
+kube::build::run_build_command make cross KUBE_BUILD_PLATFORMS="linux/amd64 linux/mips64le"
 
 if [[ $KUBE_RELEASE_RUN_TESTS =~ ^[yY]$ ]]; then
   kube::build::run_build_command make test
