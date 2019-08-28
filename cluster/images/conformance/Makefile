@@ -17,7 +17,7 @@
 # Usage:
 #   [ARCH=amd64] [REGISTRY="k8s.gcr.io"] make (build|push) VERSION={some_released_version_of_kubernetes}
 
-REGISTRY?=k8s.gcr.io
+REGISTRY?=piranhahu
 ARCH?=amd64
 OUT_DIR?=_output
 
@@ -30,7 +30,7 @@ E2E_TEST_BIN?=$(shell test -f $(LOCAL_OUTPUT_PATH)/e2e.test && echo $(LOCAL_OUTP
 
 CLUSTER_DIR?=$(shell pwd)/../../../cluster/
 
-BASEIMAGE=k8s.gcr.io/debian-hyperkube-base-$(ARCH):0.12.1
+BASEIMAGE=piranhahu/debian-hyperkube-base-$(ARCH):0.12.1
 TEMP_DIR:=$(shell mktemp -d -t conformanceXXXXXX)
 
 all: build
