@@ -43,6 +43,6 @@ fi
 kube::build::copy_output
 
 find _output
-#rm -rf _output/dockerized/bin/linux/amd64
+rm -rf _output/dockerized/bin/linux/amd64
 
 kube::release::package_tarballs

@@ -14,7 +14,7 @@
 
 all: all-build
 
-REGISTRY ?= staging-k8s.gcr.io
+REGISTRY ?= piranhahu
 IMAGE ?= $(REGISTRY)/debian-base
 BUILD_IMAGE ?= debian-build
 
@@ -50,6 +50,10 @@ endif
 ifeq ($(ARCH),s390x)
 	BASEIMAGE?=s390x/debian:stretch
 	QEMUARCH=s390x
+endif
+ifeq ($(ARCH),mips64el)
+        BASEIMAGE?=aoqi/debian-mips64el:stretch
+        QEMUARCH=mips64el
 endif
 
 sub-build-%:
@@ -91,7 +95,7 @@ endif
 	mv $(TEMP_DIR)/Dockerfile.build.tmp $(TEMP_DIR)/Dockerfile.build
 
 	docker build --pull -t $(BUILD_IMAGE) -f $(TEMP_DIR)/Dockerfile.build $(TEMP_DIR)
-	docker create --name $(BUILD_IMAGE) $(BUILD_IMAGE)
+	docker create --name $(BUILD_IMAGE) $(BUILD_IMAGE) /bin/sh
 	docker export $(BUILD_IMAGE) > $(TEMP_DIR)/$(TAR_FILE)
 	docker build -t $(IMAGE)-$(ARCH):$(TAG) $(TEMP_DIR)
 	rm -rf $(TEMP_DIR)

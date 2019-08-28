@@ -17,14 +17,14 @@
 # Usage:
 #   [ARCH=amd64] [REGISTRY="staging-k8s.gcr.io"] make (build|push)
 
-REGISTRY?=staging-k8s.gcr.io
+REGISTRY?=piranhahu
 IMAGE?=$(REGISTRY)/debian-hyperkube-base
 TAG=0.12.1
 ARCH?=amd64
 ALL_ARCH = amd64 arm arm64 ppc64le s390x
 CACHEBUST?=1
 
-BASEIMAGE=k8s.gcr.io/debian-base-$(ARCH):0.4.1
+BASEIMAGE=piranhahu/debian-base-$(ARCH):v1.0.0
 CNI_VERSION=v0.7.5
 
 TEMP_DIR:=$(shell mktemp -d)
@@ -58,7 +58,7 @@ push-manifest:
 
 cni-tars/$(CNI_TARBALL):
 	mkdir -p cni-tars/
-	cd cni-tars/ && curl -sSLO --retry 5 https://storage.googleapis.com/kubernetes-release/network-plugins/${CNI_TARBALL}
+	cd cni-tars/ && curl -sSLO --retry 5 https://github.com/tmon546596046/plugins/releases/download/v0.7.5-mips64el/${CNI_TARBALL}
 
 clean:
 	rm -rf cni-tars/
