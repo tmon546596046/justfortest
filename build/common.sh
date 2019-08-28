@@ -94,11 +94,11 @@ kube::build::get_docker_wrapped_binaries() {
   ### If you change any of these lists, please also update DOCKERIZED_BINARIES
   ### in build/BUILD. And kube::golang::server_image_targets
   local targets=(
-    cloud-controller-manager,"k8s.gcr.io/debian-base-${arch}:${debian_base_version}"
-    kube-apiserver,"k8s.gcr.io/debian-base-${arch}:${debian_base_version}"
-    kube-controller-manager,"k8s.gcr.io/debian-base-${arch}:${debian_base_version}"
-    kube-scheduler,"k8s.gcr.io/debian-base-${arch}:${debian_base_version}"
-    kube-proxy,"k8s.gcr.io/debian-iptables-${arch}:${debian_iptables_version}"
+    cloud-controller-manager,"piranhahu/debian-base-${arch}:${debian_base_version}"
+    kube-apiserver,"piranhahu/debian-base-${arch}:${debian_base_version}"
+    kube-controller-manager,"piranhahu/debian-base-${arch}:${debian_base_version}"
+    kube-scheduler,"piranhahu/debian-base-${arch}:${debian_base_version}"
+    kube-proxy,"piranhahu/debian-iptables-${arch}:${debian_iptables_version}"
   )
 
   echo "${targets[@]}"

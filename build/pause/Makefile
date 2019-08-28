@@ -16,7 +16,7 @@
 
 include ../../hack/make-rules/Makefile.manifest
 
-REGISTRY ?= staging-k8s.gcr.io
+REGISTRY ?= piranhahu
 IMAGE = $(REGISTRY)/pause
 IMAGE_WITH_ARCH = $(IMAGE)-$(ARCH)
 
