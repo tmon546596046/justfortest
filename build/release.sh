@@ -46,3 +46,5 @@ find _output
 rm -rf _output/dockerized/bin/linux/amd64
 
 kube::release::package_tarballs
+
+find _output
