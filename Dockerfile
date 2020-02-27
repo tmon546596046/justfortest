@@ -17,4 +17,4 @@
 
 FROM golang:1.12.5
 
-ADD board /
+ADD src /
