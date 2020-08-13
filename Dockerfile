@@ -18,4 +18,4 @@
 FROM golang:1.12.5
 
 
-git clone https://github.com/raspberrypi/linux
+RUN git clone https://github.com/raspberrypi/linux
