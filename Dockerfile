@@ -18,4 +18,4 @@
 FROM golang:1.12.5
 
 
-RUN git clone https://github.com/raspberrypi/firmware.git && tar -zcvf firmware.tar.gz firmware && rm -rf firmware
+RUN wget https://github.com/raspberrypi/firmware/archive/master.zip
